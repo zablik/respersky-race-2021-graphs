@@ -5532,7 +5532,7 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
 
-    let step = (urlParams.get('step') ? urlParams.get('step') : 15) * 60
+    let step = (urlParams.get('step') ? urlParams.get('step') : 20) * 60
 
     let start = 60 * 60;
     let end = 10 * 60 * 60;
@@ -5997,14 +5997,14 @@
         datasets: [
             {
                 label: 'Men',
-                data: datasets1ForGraph['m']['y'],
+                data: datasetsSForGraph['m']['y'],
                 borderColor: 'red',
                 fill: false,
                 stepped: true,
             },
             {
                 label: 'Women',
-                data: datasets1ForGraph['f']['y'],
+                data: datasetsSForGraph['f']['y'],
                 borderColor: 'blue',
                 fill: false,
                 stepped: true,
