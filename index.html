@@ -5652,7 +5652,7 @@
 
             for (let current in scale) {
                 if ((timeSec > parseInt(current) - parseInt(step)) && (timeSec < parseInt(current))) {
-                    datasets2[key][current]++;
+                    datasets2[key][current - step]++;
                     break;
                 }
             }
@@ -5942,7 +5942,7 @@
 // ====== sum =====
 
 
-    start = 6 * 60 * 60;
+    start = 5 * 60 * 60 + 30 * 60;
     end = 14 * 60 * 60;
 
     scale = {};
@@ -5962,7 +5962,7 @@
             let timeSec = parseInt(res['sum-sec']);
 
             for (let current in scale) {
-                if ((timeSec > parseInt(current) - parseInt(step)) && (timeSec < parseInt(current))) {
+                if ((timeSec > (parseInt(current) - parseInt(step))) && (timeSec < parseInt(current))) {
                     datasetsS[key][current - step]++;
                     break;
                 }
@@ -5970,7 +5970,7 @@
         }
     }
 
-    //console.log(datasets1);
+    console.log(datasetsS);
     let datasetsSForGraph = {
         'm': {
             'x': [],
@@ -5991,6 +5991,8 @@
         datasetsSForGraph['f']['x'].push(new Date(parseInt(timeFrom) * 1000).toISOString().substr(11, 5));
         datasetsSForGraph['f']['y'].push(datasetsS['f'][parseInt(timeFrom)]);
     }
+
+    console.log(datasetsSForGraph);
 
     const dataS = {
         labels: datasetsSForGraph['m']['x'],
